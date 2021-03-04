@@ -9,7 +9,6 @@ class Settings {
             document.querySelector('#medium'),
             document.querySelector('#hard'),
         ];
-        
         this.startButton = document.querySelector('#start');
 
         this.quiz = {};
