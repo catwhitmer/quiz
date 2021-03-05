@@ -16,8 +16,20 @@ class Settings {
         this.startButton.addEventListener('click', this.startQuiz.bind(this));
     }
 
-    startQuiz() {
-        
+    async startQuiz() {
+        try {
+            const amount = this.startButton.getAmount();
+            const categoryId = this.category.value;
+            const difficulty = this.getCurrentDifficulty();
+
+            const url = `https://opentdb.com/api.php?amount=${amount}&category=${categoryId}&difficulty=${difficulty}&type=multiple`;
+            
+            let data = await this.fetchData(url);
+            this.toggleVisibility;
+            this.quiz = new Quiz(this.quizElement, amount, data.results);
+        } catch (error) {
+            alert(error);
+        }
     }
 }
 
